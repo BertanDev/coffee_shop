@@ -1,8 +1,9 @@
 import { ShoppingCart, Timer, Package, Coffee } from 'phosphor-react'
+import { useContext } from 'react'
 
 import coffeHome from '../../assets/coffe_home.svg'
 
-import { coffeList } from '../../coffeList'
+import { OrderContext } from '../../contexts/OrderContext'
 import { CoffeeCard } from './components/CoffeeCard'
 
 import {
@@ -15,6 +16,8 @@ import {
  } from './styles'
 
 export function Home(){
+    const { coffeeList } = useContext(OrderContext)
+
     return(
         <HomeContainer>
             <Welcome>
@@ -53,9 +56,9 @@ export function Home(){
             <Title>Nossos cafés</Title>
 
             <Coffees>
-                {coffeList.map(cafe => {
+                {coffeeList.map(cafe => {
                     return(
-                        <CoffeeCard data={cafe}/>
+                        <CoffeeCard data={cafe} key={cafe.id}/>
                     )
                 })}
             </Coffees>

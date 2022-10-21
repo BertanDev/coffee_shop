@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
@@ -35,4 +36,33 @@ export const Location = styled.div`
     font-size: 'Roboto';
 
     gap: 0.28rem;
+`
+
+export const CartButton = styled(NavLink)`
+    position: relative;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0;
+    svg {
+        color: ${props => props.theme['yellow-dark']};
+    }
+`
+
+export const CartCounter = styled.span`
+  position: absolute;
+  right: -8.35px;
+  top: -8px;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: ${props => props.theme['yellow-dark']};
+  color: ${props => props.theme.white};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
 `

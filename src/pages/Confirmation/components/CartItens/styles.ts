@@ -1,11 +1,5 @@
 import styled from "styled-components"
 
-export const CartContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 2.85rem;
-`
-
 export const ItemContainer = styled.div`
     display: flex;
     width: 26rem;
@@ -13,7 +7,7 @@ export const ItemContainer = styled.div`
     padding: 0.8rem 0.1rem;
     gap: 0.8rem;
 
-    &:not(:first-child){
+    &:not(:fiSrst-child){
         margin-top: 1.7rem;
     }
 
@@ -105,55 +99,4 @@ export const RemoveButton = styled.button`
     }
 `
 
-export const PaymentInfo = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-top: 2.5rem;
-    padding: 0.8rem 0.1rem;
-    gap: 1rem;
-`
 
-export const ValueOrder = styled.p`
-    display: flex;
-    width: 26rem;
-    justify-content: space-between;
-
-    span{
-        color: ${props => props.theme["base-text"]};
-        font-family: 'Roboto';
-        font-size: 1.14rem;
-    }
-
-    span:first-child{
-        font-size: 1rem;
-    }
-`
-
-export const TotalItems = styled.p`
-    display: flex;
-    width: 26rem;
-    justify-content: space-between;
-    margin-top: 0.2rem;
-
-    span{
-        font-size: 1.42rem;
-        color: ${props => props.theme["base-subtitle"]};
-        font-family: 'Roboto';
-        font-weight: bold;
-    }
-`
-
-export const ConfirmedButton = styled.button`
-    width: 26.2rem;
-    height: 3.2rem;
-    border-radius: 6px;
-    border: 0;
-    margin-top: 1.7rem;
-    cursor: pointer;
-
-    background: ${props => props.theme["yellow"]};
-    color: ${props => props.theme["white"]};
-    font-family: 'Roboto';
-    font-size: 1rem;
-    font-weight: bold;
-`

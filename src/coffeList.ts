@@ -10,7 +10,7 @@ import ChocolateQuente from './assets/ChocolateQuente.png'
 import Cubano from './assets/Cubano.png'
 import Havaiano from './assets/Havaiano.png'
 
-export const coffeList = [
+export const coffeeList = [
     {id: 1, name: 'Expresso Tradicional', valor: 9.90, img: ExpressoTradicional, tags:['TRADICIONAL'], description: 'O tradicional café feito com água quente e grãos moídos'},
     {id: 2, name: 'Expresso Americano', valor: 9.90, img: ExpressoAmericano, tags:['TRADICIONAL'], description: 'Expresso diluído, menos intenso que o tradicional'},
     {id: 3, name: 'Expresso Cremoso', valor: 9.90, img: ExpressoCremoso, tags:['TRADICIONAL'], description: 'Café expresso tradicional com espuma cremosa'},

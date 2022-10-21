@@ -1,5 +1,7 @@
 import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { OrderContext } from '../../../../contexts/OrderContext'
+import { Order } from '../../../../reducers/reducer'
 
 import {
     ContainerCard,
@@ -22,6 +24,9 @@ interface CoffeeCardProps {
 
 export function CoffeeCard({ data }: CoffeeCardProps){   
     const [coffeeAmount, setCoffeeAmount] = useState(1)
+    const [ifThereOrder, setIfThereOrder] = useState(Boolean)
+
+    const { createNewOrder, coffeeList, orders } = useContext(OrderContext)
 
     function decrementAmount(){
         if(coffeeAmount === 1){
@@ -29,7 +34,6 @@ export function CoffeeCard({ data }: CoffeeCardProps){
         } else {
             setCoffeeAmount(coffeeAmount - 1)
         }
-        
     }
 
     function increaseAmount(){
@@ -40,13 +44,44 @@ export function CoffeeCard({ data }: CoffeeCardProps){
         }
     }
 
+    function handleCreateNewOrder(){
+        if(orders){
+            for(var order of orders){
+                if(order.coffee == data.id){
+                    setIfThereOrder(true)
+                    return
+                } else {
+                    setIfThereOrder(false)
+                }
+            }
+        }
+    
+        if(ifThereOrder){
+            console.log('ja tem')
+        } else {
+            console.log('adicionou')
+            const id = String(new Date().getTime())
+
+            const coffeeData = {
+                id,
+                amount: coffeeAmount,
+                coffee: data.id
+            }
+
+            createNewOrder(coffeeData)
+        }
+        
+
+        setCoffeeAmount(1)
+    }
+
     return(
         <ContainerCard>
             <img src={data.img} alt="" />
             <Tags>
                 {data.tags.map(tag => {
                     return(
-                        <span>{tag}</span>
+                        <span key={tag}>{tag}</span>
                     )
                 })}
             </Tags>
@@ -75,7 +110,7 @@ export function CoffeeCard({ data }: CoffeeCardProps){
                     </InputButton>
                 </div>
 
-                <PurchaseButton>
+                <PurchaseButton onClick={handleCreateNewOrder}>
                     <ShoppingCartSimple size={22}/> 
                 </PurchaseButton>
             </PurchaseOptions>
