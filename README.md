@@ -1,4 +1,4 @@
-# Coffee Shop
+# ☕ Coffee Shop ☕
 Este projeto foi realizado como desafio do curso Ignite da Rocketseat
 
 Nós criamos um carrinho de compras em um App de delivery de cafés!
